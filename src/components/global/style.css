@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700;800;900&family=Inter&family=Roboto&family=Roboto+Mono:wght@400;500;600;700&display=swap');
+
+
+*{
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root{
+    --main-color: #0ef6cc;
+    --text-color: #3a4f50;
+    --bg-color: #1b2223;
+    --light-color: #f4fefd;
+}
+
+img{
+    width: 100%;
+}
+
+body {
+    color: var(--text-color);
+}
+
+.container{
+    max-width:66.75rem;
+    margin: auto;
+    width: 100%;
+}
