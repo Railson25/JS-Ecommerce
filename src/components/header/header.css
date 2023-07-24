@@ -26,3 +26,18 @@
     color: var(--main-color);
     cursor: pointer;
 }
+
+@media (max-width: 1080px){
+    .nav{
+        padding: 15px;
+    }
+}
+
+@media (max-width: 400px){
+    .nav{
+        padding: 11px;
+    }
+    .logo{
+        font-size: 1rem;
+    }
+}

@@ -9,6 +9,7 @@
     box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
     z-index: 101;
     transition: 0.3s;
+    overflow: inherit;
 }
 
 .active{
@@ -109,4 +110,22 @@
     font-size: 2rem;
     color: var(--main-color);
     cursor: pointer;
+}
+
+@media (max-width: 1080px){
+    section{
+        padding: 3rem 0 2rem;
+    }
+}
+
+@media (max-width: 400px){
+    .cart{
+        width: 320px;
+    }
+}
+
+@media (max-width: 360px){
+    .cart{
+        width: 260px;
+    }
 }

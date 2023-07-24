@@ -32,3 +32,10 @@ body {
     margin: auto;
     width: 100%;
 }
+
+@media (max-width: 1080px){
+    .container{
+       margin: 0 auto;
+       width: 90%;
+    }
+}

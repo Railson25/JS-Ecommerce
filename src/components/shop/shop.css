@@ -58,3 +58,18 @@
 .add-cart:hover{
     background: hsl(251, 68%, 46%);
 }
+
+@media (max-width: 1080px){
+    section{
+        padding: 3rem 0 2rem;
+    }
+    .shop{
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 360px){
+    .shop{
+        margin-top: 1rem;
+    }
+}
