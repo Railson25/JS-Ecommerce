@@ -46,8 +46,22 @@ function ready(){
         button.addEventListener('click', addCartClicked)
     }
 
-   
+    // Button comprar 
+    document.getElementsByClassName('btn-buy')[0].addEventListener('click', buyButtonClicked)
 }
+
+// Finalizar Compra
+
+function buyButtonClicked(){
+    alert('Seu pedido foi feito')
+    var cartContent = document.getElementsByClassName('cart-content')[0]
+
+    while(cartContent.hasChildNodes()){
+        cartContent.removeChild(cartContent.firstChild)
+    }
+    updateTotal()
+}
+
 
 
 // Removendo Item do carrinho
@@ -125,9 +139,9 @@ function updateTotal(){
         var quantity = quantityElement.value 
 
         total = total + price * quantity
+    }
         // Se o valor conter centavos
         total = Math.round(total *100) / 100
         
         document.getElementsByClassName('total-price')[0].innerText= '$' + total
-    }
 }
