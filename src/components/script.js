@@ -26,7 +26,6 @@ if (document.readyState == 'loading') {
 function ready(){
     // Removendo Items do carinho
     var removeCartButtons = document.getElementsByClassName('cart-remove')
-    console.log(removeCartButtons)
     for (var i = 0; i < removeCartButtons.length; i++){
         var button = removeCartButtons[i]
         button.addEventListener('click', removeCartItem)
@@ -39,6 +38,15 @@ function ready(){
         var input = quantityInputs[i]
         input.addEventListener('change', quantityChanged)
     }
+
+    // Adicionando ao carinho
+    var addCart = document.getElementsByClassName('add-cart')
+    for (var i = 0; i < addCart.length; i++){
+        var button = addCart[i]
+        button.addEventListener('click', addCartClicked)
+    }
+
+   
 }
 
 
@@ -58,6 +66,50 @@ function quantityChanged(event){
     }
     updateTotal()
 }
+
+// Adicionando ao carinho
+function addCartClicked(event){
+    var button = event.target
+    var shopProducts = button.parentElement
+    var title = shopProducts.getElementsByClassName('product-title')[0].innerText
+    var price = shopProducts.getElementsByClassName('product-price')[0].innerText
+    var productImg = shopProducts.getElementsByClassName('product-img')[0].src
+
+    addProductToCart(title, price, productImg)
+    updateTotal()
+}
+
+function addProductToCart(title, price, productImg){
+    var cartShopBox = document.createElement('div')
+    cartShopBox.classList.add('cart-box')
+    var cartItems = document.getElementsByClassName('cart-content')[0]
+    var cartItemNames = cartItems.getElementsByClassName('cart-product-title')
+
+    for (var i = 0; i < cartItemNames.length; i++){
+        if(cartItemNames[i].innerText == title){
+            alert('Voce adicinou este item ao carinho')
+            return
+        }
+    }
+
+    // Adicionando HTML atraves do JS
+    var cartBoxContent = `
+        <img src="${productImg}" alt="" class="cart-img">
+        <div class="detail-box">
+            <h3 class="cart-product-title">${title}</h3>
+            <p class="cart-price">${price}</p>
+            <input type="number" value="1" class="cart-quantity">
+        </div>
+        <i class='bx bxs-trash-alt cart-remove'></i>
+    `
+    
+    cartShopBox.innerHTML = cartBoxContent
+    cartItems.append(cartShopBox)
+    cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click', removeCartItem)
+    cartShopBox.getElementsByClassName('cart-quantity')[0].addEventListener('change', quantityChanged)
+}
+
+
 
 //Atualizando Total 
 function updateTotal(){
